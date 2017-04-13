@@ -1,0 +1,24 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--为了APP整体风格，新定义字体超大 大 中 小 微-->
+    <dimen name="new_text_large">22sp</dimen>
+    <dimen name="new_text_medium">18sp</dimen>
+    <dimen name="new_text_small">14sp</dimen>
+    <dimen name="new_text_micro">12sp</dimen>
+    <dimen name="new_text_nmicro">10sp</dimen>
+
+    <!--对话框文字消息间隔-->
+    <dimen name="dialog_text">3dp</dimen>
+
+    <dimen name="title_margin">10dp</dimen>
+
+    <dimen name="layout_left">3dp</dimen>
+    <!--圆角度数-->
+    <dimen name="corners_value">10dp</dimen>
+
+    <dimen name="stroke_width">0.1dp</dimen>
+</resources>

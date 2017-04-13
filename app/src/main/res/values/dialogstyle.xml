@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="mp_dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="ma_dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+       <!-- 对话框消息提示字体样式-->
+    <style name="dialog_text_message">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/new_text_medium</item>
+        <item name="android:layout_margin">@dimen/dialog_text</item>
+    </style>
+    <!-- 对话框消息提示副字体样式-->
+    <style name="dialog_text_two_message">
+        <item name="android:textColor">@color/shallowblack</item>
+        <item name="android:textSize">@dimen/new_text_small</item>
+        <item name="android:layout_margin">@dimen/dialog_text</item>
+    </style>
+
+    <style name="Dialog_Button_Transparent">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">@color/deepblue</item>
+        <item name="android:textSize">@dimen/new_text_small</item>
+    </style>
+</resources>

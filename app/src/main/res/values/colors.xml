@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#313131</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue">#0076a4</color>
+    <color name="RoundFillColor">#45C3E5</color>
+    <color name="shallowblack">#525252</color>
+    <color name="deepblue">#0881A3</color>
+    <color name="white">#ffffff</color>
+
+    <color name="frenchgrey">#C8C8C8</color>
+</resources>
