@@ -4,7 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 /**
- * Created by Administrator on 2017/4/11 0011.
+ * 捕捉APP全局错误
+ * Created by Mr.c on 2017/4/11 0011.
  */
 
 public class AppExceptionHandler implements Thread.UncaughtExceptionHandler {
@@ -31,6 +32,6 @@ public class AppExceptionHandler implements Thread.UncaughtExceptionHandler {
     public void uncaughtException(Thread t, Throwable e) {
         String threadName = t.getName();
         String error = e.toString();
-        Log.e("UncaughtExceptionHandler测试",threadName+"===="+error);
+        Log.e("d",threadName+"+"+error);
     }
 }

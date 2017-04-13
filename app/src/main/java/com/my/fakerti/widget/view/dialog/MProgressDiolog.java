@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.my.fakerti.R;
 
 /**
- * 加载对话框
+ * 加载带有进度条的对话框
  * created by Mr.C at 2017 04 14:51
  **/
 public class MProgressDiolog extends Dialog{
@@ -26,6 +26,6 @@ public class MProgressDiolog extends Dialog{
         setCancelable(iscan);
     }
     private void initview(Context context, String message){
-//        View view = LayoutInflater.from(context).inflate(R.layout.dg_mprogress,null);
+        View view = LayoutInflater.from(context).inflate(R.layout.dg_mprogress,null);
     }
 }

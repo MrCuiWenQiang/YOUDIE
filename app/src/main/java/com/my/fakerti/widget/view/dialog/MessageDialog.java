@@ -42,7 +42,7 @@ public class MessageDialog extends Dialog{
     }
 
     private void initview(Context context){
-        View layout = LayoutInflater.from(context).inflate(R.layout.dg_mprogress,null);
+        View layout = LayoutInflater.from(context).inflate(R.layout.dg_message,null);
          t_main_message = (TextView) layout.findViewById(R.id.main_message);
          t_deputy_message = (TextView) layout.findViewById(R.id.deputy_message);
          bt_confirm = (Button) layout.findViewById(R.id.bt_confirm);

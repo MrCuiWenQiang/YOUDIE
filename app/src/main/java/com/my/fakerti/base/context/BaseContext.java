@@ -19,7 +19,7 @@ public class BaseContext extends Application{
     }
 
     private void initException() {
-        AppExceptionHandler.getAppExceptionHandler().init(this);
+        AppExceptionHandler.getAppExceptionHandler().init(getApplicationContext());
     }
 
     //初始化Okhttp3
