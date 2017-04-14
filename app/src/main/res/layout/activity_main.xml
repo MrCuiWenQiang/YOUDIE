@@ -5,12 +5,9 @@
                 android:layout_height="match_parent" >
 <com.my.fakerti.widget.view.progressbar.RoundProgressBar
     android:id="@+id/roundProgressBar2"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentBottom="true"
-
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android_custom:max="100"
     android_custom:roundWidth="5dip"
-    android_custom:textSize="15sp"/>
+    android_custom:textSize="10sp"/>
 </RelativeLayout>

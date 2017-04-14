@@ -21,6 +21,11 @@ import com.my.fakerti.widget.view.progressbar.base.BaseProgressBar;
  * Created by Mr.C on 2017/4/13 0013.
  */
 public class RoundProgressBar extends BaseProgressBar {
+    //空心
+    public static final int STROKE = 0;
+   //实心
+    public static final int FILL = 1;
+
     /**
      * 画笔对象的引用
      */
@@ -70,8 +75,6 @@ public class RoundProgressBar extends BaseProgressBar {
      */
     private int style;
 
-    public static final int STROKE = 0;
-    public static final int FILL = 1;
 
     public RoundProgressBar(Context context) {
         this(context, null);
@@ -91,7 +94,7 @@ public class RoundProgressBar extends BaseProgressBar {
         roundColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundColor, ContextCompat.getColor(context,R.color.white));
         roundProgressColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundProgressColor,ContextCompat.getColor(context,R.color.colorPrimary));
         textColor = mTypedArray.getColor(R.styleable.RoundProgressBar_textColor, ContextCompat.getColor(context,R.color.colorPrimary));
-        textSize = mTypedArray.getDimension(R.styleable.RoundProgressBar_textSize, 15);
+        textSize = mTypedArray.getDimension(R.styleable.RoundProgressBar_textSize, 10);
         roundWidth = mTypedArray.getDimension(R.styleable.RoundProgressBar_roundWidth, 5);
         max = mTypedArray.getInteger(R.styleable.RoundProgressBar_max, 100);
         textIsDisplayable = mTypedArray.getBoolean(R.styleable.RoundProgressBar_textIsDisplayable, true);
@@ -154,8 +157,13 @@ public class RoundProgressBar extends BaseProgressBar {
                 break;
             }
         }
-
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        setMeasuredDimension(measure(widthMeasureSpec),measure(heightMeasureSpec));
+    }
+
 
 
     public synchronized int getMax() {

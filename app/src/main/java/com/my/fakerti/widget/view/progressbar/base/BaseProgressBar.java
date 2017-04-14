@@ -13,7 +13,12 @@ import com.my.fakerti.util.timer.TimingUtil;
  */
 
 public class BaseProgressBar extends View implements TimingUtil.Task{
+
+    //View默认最小宽度
+    private static final int DEFAULT_MIN_WIDTH =100;
+
     private TimingUtil timingUtil;
+
     public BaseProgressBar(Context context) {
         this(context,null);
     }
@@ -43,6 +48,24 @@ public class BaseProgressBar extends View implements TimingUtil.Task{
 
     }
 
+    /**
+     * 测量模式 兼容wrap_content模式
+     * @param origin
+     * @return
+     */
+    public int measure(int origin){
+        int result = DEFAULT_MIN_WIDTH;
+        int specMode = MeasureSpec.getMode(origin);
+        int specSize = MeasureSpec.getSize(origin);
+        switch (specMode){
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+            case MeasureSpec.AT_MOST:
+                result = Math.min(result,specSize);
+        }
+        return  result;
+    }
     /**
      * 停止循环
      */
