@@ -3,24 +3,24 @@ package com.my.fakerti.widget.view.progressbar;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.my.fakerti.R;
+import com.my.fakerti.widget.view.progressbar.base.BaseProgressBar;
 
 /**
- * 带进度的进度条
+ * 带进度的进度条  下载专用
  * 如果需要在布局定义属性 请在表头加入  xmlns:android_custom="http://schemas.android.com/apk/res-auto"
  *android_custom:style="FILL"将使用扇形进度模式
  * android_custom:style="STROKE" 使用圆环进度模式 该模式下可以显示文字进度 需要加入  属性android_custom:textIsDisplayable="true"
  * 更多属性请查阅Values文件夹下的dialogtype.xml文件中的RoundProgressBar属性值
  * Created by Mr.C on 2017/4/13 0013.
  */
-public class RoundProgressBar extends View {
+public class RoundProgressBar extends BaseProgressBar {
     /**
      * 画笔对象的引用
      */
@@ -88,14 +88,14 @@ public class RoundProgressBar extends View {
         TypedArray mTypedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.RoundProgressBar);
         //获取自定义属性和默认值
-        roundColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundColor, Color.RED);
-        roundProgressColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundProgressColor,Color.GREEN);
-        textColor = mTypedArray.getColor(R.styleable.RoundProgressBar_textColor, Color.BLACK);
+        roundColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundColor, ContextCompat.getColor(context,R.color.white));
+        roundProgressColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundProgressColor,ContextCompat.getColor(context,R.color.colorPrimary));
+        textColor = mTypedArray.getColor(R.styleable.RoundProgressBar_textColor, ContextCompat.getColor(context,R.color.colorPrimary));
         textSize = mTypedArray.getDimension(R.styleable.RoundProgressBar_textSize, 15);
         roundWidth = mTypedArray.getDimension(R.styleable.RoundProgressBar_roundWidth, 5);
         max = mTypedArray.getInteger(R.styleable.RoundProgressBar_max, 100);
         textIsDisplayable = mTypedArray.getBoolean(R.styleable.RoundProgressBar_textIsDisplayable, true);
-        style = mTypedArray.getInt(R.styleable.RoundProgressBar_style, 0);
+        style = mTypedArray.getInt(R.styleable.RoundProgressBar_style, STROKE);
 
         mTypedArray.recycle();
     }
@@ -197,7 +197,6 @@ public class RoundProgressBar extends View {
             this.progress = progress;
             postInvalidate();
         }
-
     }
 
 

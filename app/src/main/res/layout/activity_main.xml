@@ -10,12 +10,7 @@
     android:layout_alignParentRight="true"
     android:layout_alignParentBottom="true"
 
-    android_custom:roundColor="#D1D1D1"
-    android_custom:roundProgressColor="@android:color/black"
-    android_custom:textColor="@android:color/black"
-    android_custom:textIsDisplayable="true"
     android_custom:max="100"
-    android_custom:style="STROKE"
     android_custom:roundWidth="5dip"
     android_custom:textSize="15sp"/>
 </RelativeLayout>
