@@ -2,6 +2,8 @@ package com.my.fakerti.util.timer;
 
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,7 +26,7 @@ public class TimingUtil {
      * @param in_task
      * @param delay
      */
-    public synchronized void goTask(Task in_task,Long delay){
+    public synchronized void goTask(@NonNull Task in_task, @Nullable long delay){
         this.in_task = in_task;
         timer = new Timer();
         timerTask = new TimerTask() {
@@ -35,7 +37,10 @@ public class TimingUtil {
                 handler.sendMessage(message);
             }
         };
-        timer.schedule(timerTask,delay);
+        if (delay <=0 ){
+            delay = starttime;
+        }
+        timer.schedule(timerTask,delay,delay);
     }
 
     /**
@@ -48,7 +53,7 @@ public class TimingUtil {
     Handler handler =new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if (in_task!=null){
+            if (in_task!=null && msg.what == 1){
                 in_task.startStask();
             }
             super.handleMessage(msg);
