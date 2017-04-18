@@ -1,4 +1,4 @@
-package com.my.fakerti.permission.collocation;
+package com.my.fakerti.util.permission.collocation;
 
 /**
  * Android7.0权限表

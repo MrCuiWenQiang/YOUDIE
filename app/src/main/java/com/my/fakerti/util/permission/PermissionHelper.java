@@ -1,4 +1,4 @@
-package com.my.fakerti.permission;
+package com.my.fakerti.util.permission;
 
 import android.annotation.TargetApi;
 import android.content.Context;

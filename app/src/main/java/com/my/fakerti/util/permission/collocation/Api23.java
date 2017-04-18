@@ -1,4 +1,4 @@
-package com.my.fakerti.permission.collocation;
+package com.my.fakerti.util.permission.collocation;
 
 import android.Manifest;
 
