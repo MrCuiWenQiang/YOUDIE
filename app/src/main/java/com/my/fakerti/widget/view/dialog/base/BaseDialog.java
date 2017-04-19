@@ -19,11 +19,9 @@ import com.my.fakerti.R;
 
 public abstract class BaseDialog extends Dialog {
 
-    private Context context;
 
     protected BaseDialog(@NonNull Context context, boolean iscan){
         super(context, R.style.mp_dialog);
-        this.context = context;
         setCancelable(iscan);
         initview(context);
     }
@@ -36,17 +34,7 @@ public abstract class BaseDialog extends Dialog {
      * @return
      */
     public View inflate(@LayoutRes int id){
-        return LayoutInflater.from(context).inflate(id,null);
+        return LayoutInflater.from(getContext()).inflate(id,null);
     }
 
-
-    /**
-     * 获取图片
-     * @param id
-     * @return
-     */
-    //因为getResources().getDrawable（int）方法过时，而新方法只能在5.0上使用所以用此方法替代
-    public Drawable getDrawable(@DrawableRes int id){
-        return ContextCompat.getDrawable(context,id);
-    }
 }

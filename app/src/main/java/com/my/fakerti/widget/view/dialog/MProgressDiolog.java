@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.my.fakerti.R;
+import com.my.fakerti.compatible.C_Resources;
 import com.my.fakerti.widget.view.dialog.base.BaseDialog;
 
 /**
@@ -39,7 +40,7 @@ public class MProgressDiolog extends BaseDialog {
 
     //替换加载中的图片
     public void setProgressImage(@DrawableRes int id){
-        pro_im.setImageDrawable(getDrawable(id));
+        pro_im.setImageDrawable(C_Resources.getDrawable(getContext(),id));
     }
 
     //要显示的提示
