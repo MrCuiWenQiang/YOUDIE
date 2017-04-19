@@ -1,6 +1,7 @@
 package com.my.fakerti.widget.view.dialog;
 
 import android.content.Context;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.animation.Animation;
@@ -36,8 +37,12 @@ public class MProgressDiolog extends BaseDialog {
         setContentView(view);
     }
 
+    //替换加载中的图片
+    public void setProgressImage(@DrawableRes int id){
+        pro_im.setImageDrawable(getDrawable(id));
+    }
 
-
+    //要显示的提示
     public void setText(String text){
         main_message.setText(text);
     }
