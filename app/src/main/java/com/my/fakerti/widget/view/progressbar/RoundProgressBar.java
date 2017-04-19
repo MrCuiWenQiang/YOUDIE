@@ -11,6 +11,17 @@ import android.util.AttributeSet;
 
 import com.my.fakerti.R;
 import com.my.fakerti.widget.view.progressbar.base.BaseProgressBar;
+/* 用法示例：
+RoundProgressBar roundProgressBar2= (RoundProgressBar) findViewById(R.id.roundProgressBar2);
+int i = 0;
+TimingUtil util = new TimingUtil();
+util.goTask(new TimingUtil.Task() {
+    @Override
+    public void startStask() {
+        i++;
+        roundProgressBar2.setProgress(i);
+        }
+        },1000);*/
 
 /**
  * 带进度的进度条  下载专用

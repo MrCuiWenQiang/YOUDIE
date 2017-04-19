@@ -1,31 +1,45 @@
 package com.my.fakerti.widget.view.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.my.fakerti.R;
+import com.my.fakerti.widget.view.dialog.base.BaseDialog;
 
 /**
  * 加载带有进度条的对话框
  * created by Mr.C at 2017 04 14:51
  **/
-public class MProgressDiolog extends Dialog{
+public class MProgressDiolog extends BaseDialog {
 
-    private TextView tv_message;
+    private TextView main_message;
+    private ImageView pro_im;
 
-    public MProgressDiolog(Context context,boolean iscan) {
-        this(context,null,iscan);
+    public MProgressDiolog(@NonNull Context context, boolean iscan) {
+        super(context, iscan);
     }
 
-    public MProgressDiolog(Context context, String message ,boolean iscan) {
-        super(context,R.style.mp_dialog);
-        initview(context,message);
-        setCancelable(iscan);
+    @Override
+    public void initview(Context context) {
+        View view = inflate(R.layout.dg_mprogress);
+        main_message = (TextView) view.findViewById(R.id.main_message);
+        pro_im = (ImageView) view.findViewById(R.id.pro_im);
+        Animation manimation = AnimationUtils.loadAnimation(context,R.anim.progress_surround);
+        manimation.setInterpolator(new LinearInterpolator());
+        pro_im.startAnimation(manimation);
+        setContentView(view);
     }
-    private void initview(Context context, String message){
-        View view = LayoutInflater.from(context).inflate(R.layout.dg_mprogress,null);
+
+
+
+    public void setText(String text){
+        main_message.setText(text);
     }
+
 }

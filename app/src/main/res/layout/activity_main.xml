@@ -3,11 +3,5 @@
                 xmlns:android_custom="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
-<com.my.fakerti.widget.view.progressbar.RoundProgressBar
-    android:id="@+id/roundProgressBar2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android_custom:max="100"
-    android_custom:roundWidth="5dip"
-    android_custom:textSize="10sp"/>
+
 </RelativeLayout>

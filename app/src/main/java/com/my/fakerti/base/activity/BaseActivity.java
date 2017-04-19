@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.my.fakerti.base.activity.manager.ActivityManager;
+import com.my.fakerti.widget.view.dialog.MProgressDiolog;
 import com.my.fakerti.widget.view.dialog.MessageDialog;
 
 /**
@@ -19,6 +20,7 @@ import com.my.fakerti.widget.view.dialog.MessageDialog;
 public abstract class BaseActivity extends AppCompatActivity{
 
     private int resId = -1;
+    private  MProgressDiolog progressDialog;
 
     public BaseActivity(@LayoutRes int resId){
         this.resId = resId;
@@ -49,7 +51,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param deputy_message 消息的详细描述 可为空
      * @param iscancelable 是否点击返回键可以取消对话框
      */
-    public void showDialog(@NonNull String message , @Nullable String deputy_message,@NonNull boolean iscancelable){
+    public final void showDialog(@NonNull String message , @Nullable String deputy_message,@NonNull boolean iscancelable){
         final MessageDialog dialog =new MessageDialog(this,iscancelable);
         dialog.setMain_message(message);
         dialog.gonebt_cancel();
@@ -80,10 +82,10 @@ public abstract class BaseActivity extends AppCompatActivity{
      *弹出对话框  带有确定和取消按钮
      * @param message  提示消息
      * @param deputy_message  消息的详细描述 可为空
-     * @param iscancelable
+     * @param iscancelable 是否点击返回键可以取消对话框
      * @param onDialogClick 按钮点击回调类
      */
-    public void showDialog(@NonNull String message ,@Nullable String deputy_message,@NonNull boolean iscancelable,@NonNull MessageDialog.OnDialogClick onDialogClick){
+    public final void showDialog(@NonNull String message ,@Nullable String deputy_message,@NonNull boolean iscancelable,@NonNull MessageDialog.OnDialogClick onDialogClick){
         final MessageDialog dialog =new MessageDialog(this,iscancelable);
         dialog.setMain_message(message);
         if (TextUtils.isEmpty(deputy_message)){
@@ -95,7 +97,25 @@ public abstract class BaseActivity extends AppCompatActivity{
         dialog.show();
     }
 
+    /**
+     *弹出加载对话框
+     * @param message  提示消息
+     * @param iscancelable 是否点击返回键可以取消对话框
+     */
+    public final void  showProgressDialog(@NonNull String message ,@NonNull boolean iscancelable){
+        progressDialog = new MProgressDiolog(this,iscancelable);
+        progressDialog.setText(message);
+        progressDialog.show();
+    }
 
+    /**
+     * 关闭加载对话框
+     */
+    public final void dismissProgressDialog(){
+        if (progressDialog != null){
+            progressDialog.dismiss();
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

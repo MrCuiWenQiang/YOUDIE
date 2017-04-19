@@ -6,63 +6,21 @@
               android:layout_height="match_parent">
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/title_margin"
-        android:layout_marginLeft="@dimen/layout_left"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-       <TextView
-        android:id="@+id/pro_value"
-        style="@style/dialog_text_message"
+       <ImageView
+        android:id="@+id/pro_im"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:layout_margin="10dp"
-        android:text="加载进度框或者icon"
+        android:src="@drawable/progress"
         />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/main_message"
-                android:text="123456"
-                style="@style/dialog_text_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:id="@+id/deputy_message"
-                android:text="123456"
-                style="@style/dialog_text_two_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
+        <TextView
+         android:id="@+id/main_message"
+         style="@style/dialog_text_message"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/bt_confirm"
-            style="@style/Dialog_Button_Transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/confirm"
-            />
-
-        <Button
-            android:id="@+id/bt_cancel"
-            style="@style/Dialog_Button_Transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            />
-        </LinearLayout>
-    </RelativeLayout>
 </LinearLayout>
