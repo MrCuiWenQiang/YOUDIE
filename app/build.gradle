@@ -19,7 +19,7 @@ android {
     }
     sourceSets{
         main{
-            res.srcDirs =[
+            res.srcDirs =[  'src/main/res/layout/loadimage',
                             'src/main/res/layout/dialog',
                             'src/main/res/layout/toolbar',
                             'src/main/res/layout',

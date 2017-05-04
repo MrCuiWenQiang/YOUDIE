@@ -4,20 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.my.fakerti.base.activity.manager.ActivityManager;
+import com.my.fakerti.base.activity.toolbar.ActivityToolbar;
 import com.my.fakerti.widget.view.dialog.MProgressDiolog;
 import com.my.fakerti.widget.view.dialog.MessageDialog;
 
 /**
- * Activity的基类
+ * 带标题栏的Activity的基类
  * 应该有的功能：对话框  等待框  错误信息保存收集
  * Created by Mr.C on 2017/3/31 0031.
  */
 
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends ActivityToolbar {
 
     private int resId = -1;
     private  MProgressDiolog progressDialog;
@@ -28,12 +28,11 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(resId);
         ActivityManager.getActivityManager().add(this);
-
         initViews();
         initData();
     }
+
 
     /**
      * 初始化界面，对界面进行赋值等操作
@@ -116,6 +115,12 @@ public abstract class BaseActivity extends AppCompatActivity{
             progressDialog.dismiss();
         }
     }
+
+    @Override
+    protected int getContentChildView() {
+        return resId;
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -126,4 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity{
     public void exit(){
         ActivityManager.getActivityManager().exit();
     }
+
+
+
 }

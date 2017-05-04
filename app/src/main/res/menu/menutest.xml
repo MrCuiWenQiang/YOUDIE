@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:icon="@drawable/icon_tree_ec" android:id="@+id/mtest"
+      android:title="123456"/>
+    <item android:icon="@drawable/icon_tree_ec" android:id="@+id/f"
+          android:title="78910"/>
+</menu>
