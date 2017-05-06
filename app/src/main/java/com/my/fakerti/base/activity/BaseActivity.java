@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.my.fakerti.base.activity.manager.ActivityManager;
-import com.my.fakerti.base.activity.toolbar.ActivityToolbar;
 import com.my.fakerti.widget.view.dialog.MProgressDiolog;
 import com.my.fakerti.widget.view.dialog.MessageDialog;
 
@@ -17,14 +17,11 @@ import com.my.fakerti.widget.view.dialog.MessageDialog;
  * Created by Mr.C on 2017/3/31 0031.
  */
 
-public abstract class BaseActivity extends ActivityToolbar {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    private int resId = -1;
     private  MProgressDiolog progressDialog;
 
-    public BaseActivity(@LayoutRes int resId){
-        this.resId = resId;
-    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,11 +111,6 @@ public abstract class BaseActivity extends ActivityToolbar {
         if (progressDialog != null){
             progressDialog.dismiss();
         }
-    }
-
-    @Override
-    protected int getContentChildView() {
-        return resId;
     }
 
     @Override

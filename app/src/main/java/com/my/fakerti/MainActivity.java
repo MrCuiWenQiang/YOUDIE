@@ -9,14 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.my.fakerti.base.activity.BaseActivity;
+import com.my.fakerti.base.activity.toolbar.ActivityToolbar;
 
 
-public class MainActivity extends BaseActivity {
-
-    public MainActivity() {
-        super(R.layout.activity_main);
-    }
+public class MainActivity extends ActivityToolbar {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,5 +51,8 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
+    @Override
+    protected int getContentChildView() {
+        return R.layout.activity_main;
+    }
 }

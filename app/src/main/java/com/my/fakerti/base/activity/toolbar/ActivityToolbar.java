@@ -1,6 +1,7 @@
 package com.my.fakerti.base.activity.toolbar;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,8 @@ public abstract class ActivityToolbar extends BaseToolbar{
     private TextView title;
     private BaseToolbar.OnClickListener onClickListener;
     private int menuid = -1;
+
+
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

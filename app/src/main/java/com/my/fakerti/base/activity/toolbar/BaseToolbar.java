@@ -1,8 +1,7 @@
 package com.my.fakerti.base.activity.toolbar;
 
 import android.support.annotation.LayoutRes;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import com.my.fakerti.base.activity.BaseActivity;
 
 
 /**
@@ -10,10 +9,12 @@ import android.view.View;
  * Created by Mr.c on 2017/5/3 0003.
  */
 
-public abstract class BaseToolbar extends AppCompatActivity{
+public abstract class BaseToolbar extends BaseActivity{
     private int layoutResID =-1;
 
-    //实现引用子类的xml布局文件
+
+
+    //子类必须实现该方法。该方法实现引用子类的xml布局文件，无须调用setContentView（）
     protected abstract int getContentChildView();
 
 
