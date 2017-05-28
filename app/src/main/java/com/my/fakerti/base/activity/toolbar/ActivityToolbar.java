@@ -39,7 +39,10 @@ public abstract class ActivityToolbar extends BaseToolbar{
         LayoutInflater.from(ActivityToolbar.this).inflate(getContentChildView(),frameLayout,true);
     }
 
-
+    /**
+     * 设置标题
+     * @param text
+     */
     protected  void setTitle(String text){
         if (!TextUtils.isEmpty(text)){
             title.setText(text);
@@ -67,7 +70,11 @@ public abstract class ActivityToolbar extends BaseToolbar{
         return true;
     }
 
-
+    /**
+     * 设置菜单
+     * @param menuid menu文件ID
+     * @param itemClickListener 菜单子项点击事件
+     */
     protected  void setMenu(@MenuRes int menuid,Toolbar.OnMenuItemClickListener itemClickListener){
         this.menuid = menuid;
         toolbar.setOnMenuItemClickListener(itemClickListener);
