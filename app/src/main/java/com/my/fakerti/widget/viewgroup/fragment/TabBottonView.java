@@ -1,12 +1,16 @@
-package com.my.fakerti.widget.view;
+package com.my.fakerti.widget.viewgroup.fragment;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,6 +38,8 @@ public class TabBottonView extends LinearLayout {
     private OnSecondSelectListener onSecondSelectListener;
     private List<TabItemView> tabItemViews;
 
+    private  TabTitleView tagTabTitleView;
+
     public TabBottonView(Context context) {
         super(context);
     }
@@ -46,10 +52,57 @@ public class TabBottonView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    //设置常用属性
+    private void TabBottonViewValue(){
+        FrameLayout.LayoutParams params =new FrameLayout.LayoutParams(this.getLayoutParams());
+        params.gravity= Gravity.CENTER;
+        this.setLayoutParams(params);
+    }
+
     //设置数据
     public void setTabItemViews(List<TabItemView> tabItemViews){
         setTabItemViews(tabItemViews,null);
     }
+
+    /**
+     * 连接TabTitleView
+     * @param tagTabTitleView
+     */
+    public void setTAGTabTitleView(TabTitleView tagTabTitleView){
+        this.tagTabTitleView = tagTabTitleView;
+    }
+
+    /**
+     * 连接 Viewpager
+     * @param viewPager　
+     */
+    public void setUpWithViewPager(final ViewPager viewPager){
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                updatePosition(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        setOnTabItemSelectListener(new OnTabItemSelectListener() {
+            @Override
+            public void onTabItemSelect(int position) {
+                viewPager.setCurrentItem(position);
+            }
+        });
+    }
+
     public void setTabItemViews(List<TabItemView> tabItemViews,View centerView){
         if (this.tabItemViews != null){
             throw new RuntimeException("Duplicate settings are not allowed!");
@@ -58,7 +111,6 @@ public class TabBottonView extends LinearLayout {
         if (tabItemViews == null || tabItemViews.size()<2){
             throw new RuntimeException(TAG+": tabItemViews is Null or tabItemViews Length less than 2 !");
         }
-
         this.tabItemViews = tabItemViews;
         for (int i=0; i<tabItemViews.size(); i++) {
 
@@ -112,12 +164,16 @@ public class TabBottonView extends LinearLayout {
      * 恢复上一个 Tab Item 的状态
      */
     public void updatePosition(int position){
+        Log.e("ddd",position+"");
         if (lastPosition != position){
-                tabItemViews.get(position).setStatus(TabItemView.PRESS);
-                if (lastPosition != -1) {
-                    tabItemViews.get(lastPosition).setStatus(TabItemView.DEFAULT);
-                }
-                lastPosition = position;
+            tabItemViews.get(position).setStatus(TabItemView.PRESS);
+            if (lastPosition != -1) {
+                tabItemViews.get(lastPosition).setStatus(TabItemView.DEFAULT);
+            }
+            if (tagTabTitleView != null){
+                tagTabTitleView.addlayout(position);
+            }
+            lastPosition = position;
         }
     }
 
@@ -159,12 +215,34 @@ public class TabBottonView extends LinearLayout {
         private int iconResPress;
         private int iconResDef;
 
-        //选中状态下文字颜色变化
-        private int textResPress;
-        private int textResDef;
+        //选中状态下文字颜色变化 默认黑色
+        private int textResPress = R.color.black;
+        private int textResDef = R.color.black;
 
 
+        /**
+         *
+         * @param context
+         * @param title
+         * @param iconResDef 未选中状态下的图标
+         * @param iconResPress 选中状态下的图标
+         */
+        public TabItemView(Context context,String title,int iconResDef, int iconResPress) {
+            super(context);
+            this.iconResDef = iconResDef;
+            this.iconResPress = iconResPress;
 
+            init(title);
+        }
+        /**
+         *
+         * @param context
+         * @param title
+         * @param iconResDef 未选中状态下的图标
+         * @param iconResPress 选中状态下的图标
+         * @param textResDef 未选中状态下的标题颜色
+         * @param textResPress 选中状态下的标题颜色
+         */
         public TabItemView(Context context,String title,int iconResDef, int iconResPress,int textResDef, int textResPress) {
             super(context);
             this.iconResDef = iconResDef;
@@ -176,10 +254,10 @@ public class TabBottonView extends LinearLayout {
 
         private void init(String title){
             View view = LayoutInflater.from(getContext()).inflate(R.layout.view_tabitem,this);
-             item_title = (TextView) view.findViewById(R.id.item_text);
-             item_icon= (ImageView) view.findViewById(R.id.item_icon);
+            item_title = (TextView) view.findViewById(R.id.item_text);
+            item_icon= (ImageView) view.findViewById(R.id.item_icon);
 
-            LayoutParams layoutParams =new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+            LayoutParams layoutParams =new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.weight = 1;
             view.setLayoutParams(layoutParams);
 

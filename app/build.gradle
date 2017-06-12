@@ -38,4 +38,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     compile 'com.alibaba:fastjson:1.2.30'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
