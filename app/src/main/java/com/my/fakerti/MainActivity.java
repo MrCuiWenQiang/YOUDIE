@@ -27,13 +27,13 @@ public class MainActivity extends ActivityToolbar {
         setMenu(R.menu.menutest, new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.f:
-                        Toast.makeText(getApplicationContext(),"123",Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.mtest:
-                        Toast.makeText(getApplicationContext(),"12545563",Toast.LENGTH_LONG).show();
-                        break;
+                int i = item.getItemId();
+                if (i == R.id.f) {
+                    Toast.makeText(getApplicationContext(), "123", Toast.LENGTH_LONG).show();
+
+                } else if (i == R.id.mtest) {
+                    Toast.makeText(getApplicationContext(), "12545563", Toast.LENGTH_LONG).show();
+
                 }
                 return true;
             }
