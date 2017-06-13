@@ -26,10 +26,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityManager.getActivityManager().add(this);
+
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
         initViews();
         initData();
     }
-
 
     /**
      * 初始化界面，对界面进行赋值等操作
